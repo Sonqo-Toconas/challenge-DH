@@ -1,47 +1,58 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Aplicants'
+    let alias = 'Applicants'
 
     let cols = {
-        dni: {
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
-            allowNull: true,
             autoIncrement: true
         },
+        dni: {
+            type: dataTypes.INTEGER,
+            unique: true,
+            allowNull: false
+        },
         name: {
-            type: dataTypes.STRING(45),
-            allowNull: true,
+            type: dataTypes.STRING,
+            allowNull: false
         },
-        last_name:{
-            type: dataTypes.STRING(45),
-            allowNull: true,
+        last_name: {
+            type: dataTypes.STRING,
+            allowNull: false
         },
-        email:{
-            type: dataTypes.STRING(45),
-            allowNull: true,
+        email: {
+            type: dataTypes.STRING,
+            allowNull: false,
             unique: true
         },
-        phone:{
-            type: dataTypes.STRING(45),
-            allowNull: true,
-            unique: true
+        phone: {
+            type: dataTypes.STRING
         },
-        url_linkedin:{
-            type: dataTypes.STRING(45)
+        URL_linkedin: {
+            type: dataTypes.STRING
         },
-        birthdate:{
+        birthday: {
             type: dataTypes.DATE
         },
-        sex:{
-            type: dataTypes.STRING(45)
+        sex: {
+            type: dataTypes.ENUM('Male', 'Female', 'Other'),
+            allowNull: false
         },
-        image:{
-            type: dataTypes.STRING(45)
+        image: {
+            type: dataTypes.STRING
         },
-        profession:{
-            type: dataTypes.STRING(45),
-            allowNull: true
-        }     
+        professions_id: {
+            type: dataTypes.INTEGER
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
+        },
+        deletedAt: {
+            type: dataTypes.DATE
+        }
     }
 
     let config = {
@@ -52,9 +63,9 @@ module.exports = (sequelize, dataTypes) => {
     const Applicants = sequelize.define(alias, cols, config);
 
     Applicants.associate = function (models) {
-        Applicants.belongsTo(models.company, {
-            as: "company",
-            foreignKey: "company_id"
+        Applicants.belongsTo(models.professions, {
+            as: "professions",
+            foreignKey: "professions_id"
         })
     }
 
