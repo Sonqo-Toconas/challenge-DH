@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
     const Professions = sequelize.define(alias, cols, config);
 
     Professions.associate = function (models) {
-        Professions.hasMany(models.applicant, {
+        Professions.hasMany(models.Applicants, {
             as: "applicants",
             foreignKey: "professions_id"
         })
