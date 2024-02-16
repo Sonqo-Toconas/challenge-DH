@@ -1,0 +1,16 @@
+.profession-title {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #99a0b0;
+}
+
+.profession-table {
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+}
+
+.profession-table .blue-title {
+    background-color: #0d6efd;
+    color: white;
+    font-size: 25px;
+}

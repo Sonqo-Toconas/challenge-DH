@@ -9,11 +9,11 @@ function App() {
 
   return (
     <div>
-      <LateralMenu/>
-      <Header/>
-      <MainCard/>
-      <Aspirants/>
-      <Professions/>
+
+      <LateralMenu />
+      <Header />
+      <Aspirants />
+      <Professions />
     </div>
   )
 }
