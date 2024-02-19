@@ -1,10 +1,21 @@
-import React from "react";
-import Card from "../components/subcomponents/Card";
+import AspirantsList from "../components/AspirantList/AspirantList";
+import Professions from "../components/subcomponents/Professions";
+import CardMain from "../components/subcomponents/CardMain";
 
 const MainCard = () => {
   return (
-    <Card title="Búsqueda y Selección" subtitle="Encontramos talento para tu empresa, en todos los cargos administrativos, profesionales y técnicos." srcImage="/src/assets/images/banner.jpg" altImage="Banner"/>
+    <div>
+      <div>
+        <CardMain/>
+      </div>
+      <div>
+        <AspirantsList />
+      </div>
+      <div>
+        <Professions />
+      </div>
+    </div>
   );
-}
+};
 
 export default MainCard;

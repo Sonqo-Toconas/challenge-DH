@@ -1,21 +1,16 @@
-import Header from './views/header';
-import MainCard from './views/MainCard';
-import LateralMenu from './views/LateralMenu';
-import Aspirants from './views/Aspirants';
-import Professions from './views/Professions';
-import './App.css'
+import Header from "./views/Header";
+import MainCard from "./views/MainCard";
+import LateralMenu from "./views/LateralMenu";
+import "./App.css";
 
 function App() {
-
   return (
     <div>
-      <LateralMenu/>
-      <Header/>
-      <MainCard/>
-      <Aspirants/>
-      <Professions/>
+      <LateralMenu />
+      <Header />
+      <MainCard />
     </div>
-  )
+  );
 }
 
 export default App;
