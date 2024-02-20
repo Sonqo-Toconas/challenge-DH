@@ -7,7 +7,7 @@ const SearchBar = () => {
       <Input
         route="/"
         name="searchBar"
-        type="text"
+        type="search"
         placeholder="Ingrese su busqueda aquí..."
       />
       <ButtonLink
@@ -28,4 +28,5 @@ const SearchBar = () => {
     </div>
   );
 };
+
 export default SearchBar;

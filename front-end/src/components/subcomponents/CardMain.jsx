@@ -23,7 +23,7 @@ const CardMain = () => {
       title: "Busqueda y Selección",
       description:
         "Encontramos talento para tu empresa, en todos los cargos administrativos, profesionales y técnicos.",
-      image: "/src/assets/images/main/banner6.jpg",
+      image: "https://i.ibb.co/mS1ZpjF/banner.jpg",
       nameImage: "Banner",
     },
     {
@@ -31,7 +31,7 @@ const CardMain = () => {
       title: "Encuentra tu próximo trabajo con nosotros",
       description:
         "Explora una variedad de industrias y roles para encontrar el trabajo perfecto para ti.",
-      image: "/src/assets/images/main/banner.jpg",
+      image: "https://i.ibb.co/31PpKGb/banner1.jpg",
       nameImage: "Banner",
     },
     {
@@ -39,7 +39,7 @@ const CardMain = () => {
       title: "Diseña tu futuro: Encuentra oportunidades laborales inspiradoras",
       description:
         "Encuentra empleos que se alineen con tus intereses, habilidades y aspiraciones de carrera a largo plazo.",
-      image: "/src/assets/images/main/banner1.jpg",
+      image: "https://i.ibb.co/JpSHvSH/banner2.jpg",
       nameImage: "Banner",
     },
     {
@@ -47,7 +47,7 @@ const CardMain = () => {
       title: "Explora miles de empleos: Tu carrera comienza aquí",
       description:
         "Con herramientas de búsqueda avanzadas y filtros personalizables, encontrar el trabajo ideal nunca ha sido tan fácil.",
-      image: "/src/assets/images/main/banner2.jpg",
+      image: "https://i.ibb.co/WkDcvnB/banner6.webp",
       nameImage: "Banner",
     },
   ];

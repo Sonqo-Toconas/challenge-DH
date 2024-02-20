@@ -10,7 +10,7 @@ const Card = (props) => {
         <img
           src={props.image}
           alt={props.nameImage}
-          style={{ maxWidth: "90%", height: "auto" }}
+          style={{ maxWidth: "100%", height: "auto" }}
         />
       </div>
     </div>

@@ -1,12 +1,12 @@
 import Header from "./views/Header";
 import MainCard from "./views/MainCard";
-import LateralMenu from "./views/LateralMenu";
+/* import LateralMenu from "./views/LateralMenu"; */
 import "./App.css";
 
 function App() {
   return (
     <div>
-      <LateralMenu />
+     {/*  <LateralMenu /> */}
       <Header />
       <MainCard />
     </div>

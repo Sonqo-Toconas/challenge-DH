@@ -1,23 +1,17 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-/* import { NavLink } from "react-bootstrap"; */
 
 const ButtonLink = (props) => {
   return (
-    <div>
-      <button>
-        <Link to={props.link}>
-          <div>
-            {props.icon}
-            <div>{props.name}</div>
-          </div>
-        </Link>
-      </button>
+    <div className="d-inline-block">
+      <Link to={props.link} className="btn btn-outline-dark rounded-0">
+        <div>
+          {props.icon}
+          <div>{props.name}</div>
+        </div>
+      </Link>
     </div>
   );
-  /* 
-    <NavLink exacth to={props.link}>{props.icon}{props.nameLink}</NavLink>
-   */
 };
 
 ButtonLink.propTypes = {
