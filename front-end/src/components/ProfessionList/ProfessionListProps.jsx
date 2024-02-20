@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
-import "./ProfessionList.css";
+import './ProfessionList.css';
 
 function ProfessionListProps(props) {
 
@@ -11,7 +11,7 @@ function ProfessionListProps(props) {
             try {
                 const response = await fetch(props.api);
                 const data = await response.json();
-                setProfessionList(data[props.info]);
+                setProfessionList(data[props.data]);
             } catch (error) {
                 console.log(error);
             }
@@ -22,14 +22,14 @@ function ProfessionListProps(props) {
     return (
         <>
             <h2 className='profession-title'>{props.title}</h2>
-            <Table hover className="profession-table">
+            <Table hover className='profession-table'>
                 <tbody>
                     <tr>
-                        <td className="blue-title">{props.titleTable}</td>
+                        <td className='blue-title'>{props.titleTable}</td>
                     </tr>
                     {professionList.map((profession, i) => (
                         <tr key={i}>
-                            <td>{profession.name}</td>
+                            <td>{profession[props.name]}</td>
                         </tr>
                     ))}
                 </tbody>

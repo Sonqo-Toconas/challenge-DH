@@ -1,9 +1,15 @@
-import ProfessionListProps from "./ProfessionListProps";
+import ProfessionListProps from './ProfessionListProps';
 
 function ProfessionList() {
     return (
         <>
-            <ProfessionListProps title='Profesiones' titleTable='Listado de Profesiones' api='https://rickandmortyapi.com/api/character' info='results' />
+            <ProfessionListProps
+                title='Profesiones'
+                titleTable='Listado de Profesiones'
+                name='name'
+                api='http://localhost:3030/api/professions'
+                data='data'
+            />
         </>
     );
 };

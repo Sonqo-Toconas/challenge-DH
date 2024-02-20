@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
-import "./AspirantList.css";
+import './AspirantList.css';
+import avatar from '/avatar.jpg'
 
 function AspirantListProps(props) {
-
     const [aspirantList, setAspirantList] = useState([]);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ function AspirantListProps(props) {
             try {
                 const response = await fetch(props.api);
                 const data = await response.json();
-                setAspirantList(data[props.info]);
+                setAspirantList(data[props.data]);
             } catch (error) {
                 console.log(error);
             }
@@ -25,11 +25,11 @@ function AspirantListProps(props) {
             <Container>
                 <Row xs={1} sm={2} md={3} lg={4}>
                     {aspirantList.map((aspirant, i) => (
-                        <Col key={i} className="mb-4">
-                            <div className="aspirant-card">
-                                <Image src={aspirant.image} roundedCircle className="aspirant-image" />
-                                <div className="aspirant-name">{aspirant.name}</div>
-                                <div className="aspirant-profession">{aspirant.profession}</div>
+                        <Col key={i} className='mb-4'>
+                            <div className='aspirant-card'>
+                                <Image src={aspirant[props.image] ? aspirant[props.image] : avatar} roundedCircle className='aspirant-image' />
+                                <div className='aspirant-name'>{aspirant[props.name]}</div>
+                                <div className='aspirant-profession'>{aspirant[props.profession]}</div>
                             </div>
                         </Col>
                     ))}
