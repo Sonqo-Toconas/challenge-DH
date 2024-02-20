@@ -8,7 +8,7 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         dni: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.STRING,
             unique: true,
             allowNull: false
         },
@@ -39,6 +39,9 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         image: {
+            type: dataTypes.STRING
+        },
+        phone: {
             type: dataTypes.STRING
         },
         professions_id: {
