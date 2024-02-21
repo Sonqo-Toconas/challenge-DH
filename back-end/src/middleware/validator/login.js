@@ -2,6 +2,7 @@ const { body } = require("express-validator");
 const { Applicants } = require("../../database/models/index");
 
 const validator = [
+	
 	body("email")
 		.isEmail()
 		.withMessage("You must fill in the email field")

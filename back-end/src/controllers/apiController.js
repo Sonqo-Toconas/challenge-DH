@@ -1,12 +1,61 @@
 const { Applicants, Professions } = require("../database/models/index");
 const { validationResult } = require("express-validator");
+const imgDelete = require("../libs/imgDelete.js");
+const validate = require("../libs/validate.js");
 const bcrypt = require("bcryptjs");
 
-const fs = require("fs");
 const api = {
-	getApplicants: async (req, res) => {
+	getApplicant: async (req, res) => {
+		const id = req.params.id;
 		try {
-			const applicantsAll = await Applicants.findAll();
+			const user = await Applicants.findOne({
+				where: {
+					id: id,
+				},
+				attributes: {
+					exclude: ["professions_id"],
+				},
+				include: [
+					{
+						model: Professions,
+						as: "professions",
+						attributes: ["name", "id"],
+					},
+				],
+			});
+			if (!user) return res.status(404).json({ message: "User not found" });
+
+			let formattedUser = {
+				...user.dataValues,
+				image: `http://localhost:3030/uploads/${
+					user.image ? user.image : "avatar.jpg"
+				}`,
+			};
+
+			res.status(200).json({
+				data: formattedUser,
+				metadata: {
+					timestamp: new Date(),
+					url: `http://localhost:3030/api/applicant/${id}`,
+				},
+			});
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ message: "internal server error" });
+		}
+	},
+	getAllApplicants: async (req, res) => {
+		try {
+			const applicantsAll = await Applicants.findAll({
+				attributes: { exclude: ["professions_id"] },
+				include: [
+					{
+						model: Professions,
+						as: "professions",
+						attributes: ["name"],
+					},
+				],
+			});
 
 			if (applicantsAll.length === 0)
 				res.status(204).json({ message: "No Content" });
@@ -14,7 +63,11 @@ const api = {
 			const modifiedApplicants = applicantsAll.map((applicant) => {
 				return {
 					...applicant.dataValues,
-					image: `/uploads/${applicant.image}`,
+					image: `http://localhost:3030/uploads/${
+						applicant.image ? applicant.image : "avatar.jpg"
+					}`,
+					professions: applicant.professions.name,
+					userUrl: `http://localhost:3030/api/applicant/${applicant.id}`,
 				};
 			});
 
@@ -53,21 +106,8 @@ const api = {
 	},
 	register: async (req, res) => {
 		let errors = validationResult(req);
-		if (!errors.isEmpty()) {
-			const formattedErros = errors
-				.array()
-				.map((error) => ({ path: error.path, message: error.msg }));
-			if (req.file) {
-				try {
-					fs.unlink(req.file.path);
-					console.error("Error deleting the image:", err);
-				} catch (error) {
-					console.log("Image deleted successfully");
-				}
-			}
-			res.status(422).json(formattedErros);
-			return;
-		}
+		const formattedErros = validate(errors, req);
+		if (formattedErros) return res.status(422).json(formattedErros);
 
 		const {
 			dni,
@@ -82,6 +122,7 @@ const api = {
 			password,
 		} = req.body;
 
+		let hashpassword = await bcrypt.hash(password, 10);
 		try {
 			const user = await Applicants.create({
 				dni: dni,
@@ -92,12 +133,15 @@ const api = {
 				URL_linkedin: URLLinkedin,
 				birthday: birthday,
 				sex: sex,
-				image: req?.file || "default.png",
+				image: req.file?.filename || "avatar.jpg",
 				professions_id: professions,
-				password: bcrypt.hashSync(req.body.password, 10),
+				password: hashpassword,
 			});
 			res.status(201).json({
-				data: user,
+				data: {
+					...user.dataValues,
+					image: `http://localhost:3030/uploads/${user.image}`,
+				},
 				metadata: {
 					totalCount: user.length,
 					timestamp: new Date(),
@@ -105,19 +149,16 @@ const api = {
 				},
 			});
 		} catch (error) {
+			console.log(error);
+			imgDelete(req.file.path);
 			res.status(500).json({ message: "Internal Server Error" });
 		}
 	},
 	login: async (req, res) => {
 		let errors = validationResult(req);
 
-		if (!errors.isEmpty()) {
-			const formattedErros = errors
-				.array()
-				.map((error) => ({ path: error.path, message: error.msg }));
-			res.status(422).json(formattedErros);
-			return;
-		}
+		const formattedErros = validate(errors, req);
+		if (formattedErros) return res.status(422).json(formattedErros);
 
 		const { email, password } = req.body;
 
@@ -130,8 +171,70 @@ const api = {
 
 		let validPassword = await bcrypt.compare(password, user.password);
 
-		if (!validPassword) res.status(401).json({ message: "incorrect password" });
-		res.status(200).json({ message: 'successful'})
+		if (!validPassword)
+			return res.status(401).json({ message: "incorrect password" });
+
+		return res.status(200).json({ message: "successful" });
+	},
+	update: async (req, res) => {
+		let errors = validationResult(req);
+		const formattedErros = validate(errors, req);
+		if (formattedErros) return res.status(422).json(formattedErros);
+
+		const {
+			dni,
+			name,
+			lastName,
+			email,
+			phone,
+			URLLinkedin,
+			birthday,
+			sex,
+			professions,
+			password,
+		} = req.body;
+
+		const userFound = await Applicants.findByPk(req.params.id);
+
+		if (!userFound) res.status(400).json({ message: "user not found" });
+
+		try {
+			let hashPassword = userFound.password;
+
+			if (password) hashPassword = await bcrypt.hash(password, 10);
+
+			const user = await Applicants.update(
+				{
+					dni: dni,
+					name: name,
+					last_name: lastName,
+					email: email,
+					phone: phone,
+					URL_linkedin: URLLinkedin,
+					birthday: birthday,
+					sex: sex,
+					image: req.file?.filename || userFound.image,
+					professions_id: professions,
+					password: hashPassword,
+				},
+				{
+					where: {
+						id: userFound.id,
+					},
+				}
+			);
+			res.status(201).json({
+				data: Boolean(user),
+				metadata: {
+					timestamp: new Date(),
+					url: `http://localhost:3030/api/update/${userFound.id}`,
+				},
+			});
+		} catch (error) {
+			console.log(error);
+			if (req.file) imgDelete(req.file.path);
+			res.status(500).json({ message: "Internal Server Error" });
+		}
 	},
 };
 
