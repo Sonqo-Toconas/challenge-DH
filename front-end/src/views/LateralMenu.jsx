@@ -90,12 +90,6 @@ const LateralMenu = () => {
   return (
     <div>
       <div>
-        <img
-          src="/src/assets/images/logo-dh.png"
-          alt="Logo Digital House Emplear"
-        />
-      </div>
-      <div>
         <h4>Opciones</h4>
       </div>
       <div>
