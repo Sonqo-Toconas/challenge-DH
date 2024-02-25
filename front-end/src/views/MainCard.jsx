@@ -1,5 +1,5 @@
 import AspirantsList from "../components/AspirantList/AspirantList";
-import Professions from "../components/subcomponents/Professions";
+import ProfessionsList from "../components/ProfessionList/ProfessionList"
 import CardMain from "../components/subcomponents/CardMain";
 
 const MainCard = () => {
@@ -12,7 +12,7 @@ const MainCard = () => {
         <AspirantsList />
       </div>
       <div>
-        <Professions />
+        <ProfessionsList />
       </div>
     </div>
   );

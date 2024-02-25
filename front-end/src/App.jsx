@@ -1,6 +1,6 @@
-import Header from "./views/Header";
+import Header from "./views/Header";/* 
 import MainCard from "./views/MainCard";
-/* import LateralMenu from "./views/LateralMenu"; */
+import LateralMenu from "./views/LateralMenu"; */
 import "./App.css";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div>
      {/*  <LateralMenu /> */}
       <Header />
-      <MainCard />
+     {/*  <MainCard /> */}
     </div>
   );
 }
