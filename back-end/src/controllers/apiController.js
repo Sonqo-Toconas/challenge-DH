@@ -1,10 +1,39 @@
-const { Applicants, Professions } = require("../database/models/index");
+const {
+	Applicants,
+	Professions,
+	Companies,
+} = require("../database/models/index");
 const { validationResult } = require("express-validator");
 const imgDelete = require("../libs/imgDelete.js");
 const validate = require("../libs/validate.js");
 const bcrypt = require("bcryptjs");
 
 const api = {
+	navigate: (req, res) => {
+		res.status(200).json({
+			navigate: {
+				Applicants: "http://localhost:3030/api/applicants",
+				Professions: `http://localhost:3030/api/professions`,
+				Companies: `http://localhost:3030/api/companies`,
+			},
+		});
+	},
+	getAllCompanies: async (req, res) => {
+		try {
+			const companies = await Companies.findAll();
+			res.status(200).json({
+				data: companies,
+				metadata: {
+					totalCount: companies.length,
+					timestamp: new Date(),
+					url: "http://localhost:3030/api/companies",
+				},
+			});
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ message: "internal server error" });
+		}
+	},
 	getApplicant: async (req, res) => {
 		const id = req.params.id;
 		try {

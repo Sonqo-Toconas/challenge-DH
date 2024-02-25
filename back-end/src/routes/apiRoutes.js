@@ -5,6 +5,8 @@ const fileUpload = require("../middleware/multer.js");
 const validator = require("../middleware/validator/register.js");
 const validatorLogin = require("../middleware/validator/login.js");
 
+router.get("/", apiController.navigate);
+router.get("/companies", apiController.getAllCompanies);
 router.get("/applicants", apiController.getAllApplicants);
 router.get("/applicant/:id", apiController.getApplicant);
 router.get("/professions", apiController.getProfessions);
