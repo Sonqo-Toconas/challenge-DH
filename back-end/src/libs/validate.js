@@ -2,6 +2,7 @@ const imgDelete = require("../libs/imgDelete.js");
 
 const validate = (errors, req) => {
 	if (!errors.isEmpty()) {
+		console.log(errors)
 		const formattedErros = errors
 			.array()
 			.map((error) => ({ path: error.path, message: error.msg }));

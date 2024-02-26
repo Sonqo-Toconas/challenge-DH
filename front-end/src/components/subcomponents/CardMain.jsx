@@ -14,12 +14,12 @@ const CardMain = () => {
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
-    
+
   };
 
   const cardBanners = [
     {
-      id:"1",
+      id: "1",
       title: "Busqueda y Selección",
       description:
         "Encontramos talento para tu empresa, en todos los cargos administrativos, profesionales y técnicos.",
@@ -27,7 +27,7 @@ const CardMain = () => {
       nameImage: "Banner",
     },
     {
-      id:"2",
+      id: "2",
       title: "Encuentra tu próximo trabajo con nosotros",
       description:
         "Explora una variedad de industrias y roles para encontrar el trabajo perfecto para ti.",
@@ -35,7 +35,7 @@ const CardMain = () => {
       nameImage: "Banner",
     },
     {
-      id:"3",
+      id: "3",
       title: "Diseña tu futuro: Encuentra oportunidades laborales inspiradoras",
       description:
         "Encuentra empleos que se alineen con tus intereses, habilidades y aspiraciones de carrera a largo plazo.",
@@ -43,7 +43,7 @@ const CardMain = () => {
       nameImage: "Banner",
     },
     {
-      id:"4",
+      id: "4",
       title: "Explora miles de empleos: Tu carrera comienza aquí",
       description:
         "Con herramientas de búsqueda avanzadas y filtros personalizables, encontrar el trabajo ideal nunca ha sido tan fácil.",

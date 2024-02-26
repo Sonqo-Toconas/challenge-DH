@@ -24,10 +24,19 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
 }
 
 .aspirant-profession {
     font-size: 14px;
     color: #212529BF;
+}
+
+.link-tag {
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-tag:hover {
+    text-decoration: none;
+    color: inherit;
 }

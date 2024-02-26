@@ -1,10 +1,39 @@
-const { Applicants, Professions } = require("../database/models/index");
+const {
+	Applicants,
+	Professions,
+	Companies,
+} = require("../database/models/index");
 const { validationResult } = require("express-validator");
 const imgDelete = require("../libs/imgDelete.js");
 const validate = require("../libs/validate.js");
 const bcrypt = require("bcryptjs");
 
 const api = {
+	navigate: (req, res) => {
+		res.status(200).json({
+			navigate: {
+				Applicants: "http://localhost:3030/api/applicants",
+				Professions: `http://localhost:3030/api/professions`,
+				Companies: `http://localhost:3030/api/companies`,
+			},
+		});
+	},
+	getAllCompanies: async (req, res) => {
+		try {
+			const companies = await Companies.findAll();
+			res.status(200).json({
+				data: companies,
+				metadata: {
+					totalCount: companies.length,
+					timestamp: new Date(),
+					url: "http://localhost:3030/api/companies",
+				},
+			});
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ message: "internal server error" });
+		}
+	},
 	getApplicant: async (req, res) => {
 		const id = req.params.id;
 		try {
@@ -27,9 +56,9 @@ const api = {
 
 			let formattedUser = {
 				...user.dataValues,
-				image: `http://localhost:3030/uploads/${
-					user.image ? user.image : "avatar.jpg"
-				}`,
+				image: `http://localhost:3030/uploads/${user.image ? user.image : "avatar.jpg"
+					}`,
+				professions: user.professions.name
 			};
 
 			res.status(200).json({
@@ -63,9 +92,8 @@ const api = {
 			const modifiedApplicants = applicantsAll.map((applicant) => {
 				return {
 					...applicant.dataValues,
-					image: `http://localhost:3030/uploads/${
-						applicant.image ? applicant.image : "avatar.jpg"
-					}`,
+					image: `http://localhost:3030/uploads/${applicant.image ? applicant.image : "avatar.jpg"
+						}`,
 					professions: applicant.professions.name,
 					userUrl: `http://localhost:3030/api/applicant/${applicant.id}`,
 				};
@@ -107,7 +135,7 @@ const api = {
 	register: async (req, res) => {
 		let errors = validationResult(req);
 		const formattedErros = validate(errors, req);
-		if (formattedErros) return res.status(422).json(formattedErros);
+		if (formattedErros) return res.status(422).json({ formattedErros });
 
 		const {
 			dni,

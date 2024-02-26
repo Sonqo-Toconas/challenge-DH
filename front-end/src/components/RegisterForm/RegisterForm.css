@@ -1,0 +1,49 @@
+.register-title {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #99a0b0;
+}
+
+.title-label {
+    display: block;
+    padding: 12px;
+}
+
+.error-label {
+    display: block;
+}
+
+.input-container {
+    padding: 10px;
+    display: inline-block;
+}
+
+.input-style {
+    background-color: transparent;
+    border-radius: 5px;
+    width: 170px;
+    font-size: 15px;
+    padding: 11px;
+    border-color: #ccd0d5;
+    color: black;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+}
+
+.form-register {
+    outline: black 2px solid;
+    border-radius: 5px;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.form-button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

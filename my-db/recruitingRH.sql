@@ -45,7 +45,7 @@ CREATE TABLE `applicants` (
   UNIQUE KEY `email` (`email`),
   KEY `professions_id` (`professions_id`),
   CONSTRAINT `applicants_ibfk_1` FOREIGN KEY (`professions_id`) REFERENCES `professions` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,6 +56,31 @@ LOCK TABLES `applicants` WRITE;
 /*!40000 ALTER TABLE `applicants` DISABLE KEYS */;
 INSERT INTO `applicants` VALUES (1,'39456783','Gloria','Medina','gloria@gmail.com','3885769804',NULL,'1987-06-02','Female',NULL,'glo123',1,'2024-02-20',NULL,NULL),(2,'40768976','Daniel','Fuentes','dani@gmail.com','3885487655',NULL,'1988-10-12','Male',NULL,'dan123',2,'2024-02-20',NULL,NULL),(3,'39398634','Tim','Tim','tim@gmail.com','3885047856',NULL,'1997-12-05','Female',NULL,'tim123',3,'2024-02-20',NULL,NULL),(4,'40450831','Rocio','Carle','roo@gmail.com','3885492413',NULL,'1999-07-26','Female',NULL,'ro123',4,'2024-02-20',NULL,NULL),(5,'39098764','Victor','Fuentes','vic@gmail.com','3885769095',NULL,'1987-11-22','Male',NULL,'vic123',5,'2024-02-20',NULL,NULL),(6,'39123567','Luis','Fuentes','luis@gmail.com','3885429017',NULL,'1998-09-18','Male',NULL,'luis123',6,'2024-02-20',NULL,NULL);
 /*!40000 ALTER TABLE `applicants` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `companies`
+--
+
+DROP TABLE IF EXISTS `companies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `companies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `companies`
+--
+
+LOCK TABLES `companies` WRITE;
+/*!40000 ALTER TABLE `companies` DISABLE KEYS */;
+INSERT INTO `companies` VALUES (1,'Microsoft','Microsoft, fundada en 1975 por Bill Gates y Paul Allen, es líder en tecnología con Windows, Office y Xbox. Su impacto abarca hardware, servicios en la nube y juegos, siendo una fuerza clave en la evolución tecnológica.'),(2,'Amazon','Amazon, creada por Jeff Bezos en 1994, es líder mundial en comercio electrónico. Desde libros hasta tecnología, destaca en servicios en la nube con AWS y en entretenimiento digital con Alexa.'),(3,'Spotify','Spotify, fundada en 2006 en Suecia, es una plataforma líder de transmisión de música en línea que ofrece acceso a un extenso catálogo de canciones y listas de reproducción, con opciones gratuitas y premium.'),(4,'Google','Google es una empresa líder en tecnología, conocida por su motor de búsqueda y servicios en línea. Fundada en 1998 por Larry Page y Sergey Brin, ha crecido como una de las compañías más influyentes del mundo.'),(5,'Samsung','Samsung, empresa surcoreana fundada en 1938, destaca globalmente por sus productos electrónicos, desde teléfonos inteligentes hasta electrodomésticos y componentes semiconductores.'),(6,'Nokia','Nokia, compañía finlandesa fundada en 1865, es reconocida mundialmente por su presencia en la industria de las telecomunicaciones, especialmente en teléfonos móviles.'),(7,'Mercado Libre','Mercado Libre, fundada en 1999 en Argentina por Marcos Galperin, es una destacada plataforma de comercio electrónico en América Latina, ofreciendo una amplia variedad de productos y servicios financieros en línea.'),(8,'Apple','Apple, fundada en 1976, es una destacada empresa tecnológica de EE. UU. Con productos icónicos como iPhone y Mac, es líder en innovación y diseño.'),(9,'7ecno Shop','Un eCommerce que se especializa en la venta de celulares, accesorios y personalizaciones para estos. Su audiencia tiene como objetivo a los adolescentes');
+/*!40000 ALTER TABLE `companies` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -94,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-20 18:37:34
+-- Dump completed on 2024-02-25 13:49:51
