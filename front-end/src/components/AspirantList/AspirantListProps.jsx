@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './AspirantList.css';
-import avatar from '/avatar.jpg'
 
 function AspirantListProps(props) {
     const [aspirantList, setAspirantList] = useState([]);
@@ -26,11 +26,13 @@ function AspirantListProps(props) {
                 <Row xs={1} sm={2} md={3} lg={4}>
                     {aspirantList.map((aspirant, i) => (
                         <Col key={i} className='mb-4'>
-                            <div className='aspirant-card'>
-                                <Image src={aspirant[props.image] ? aspirant[props.image] : avatar} roundedCircle className='aspirant-image' />
-                                <div className='aspirant-name'>{aspirant[props.name]}</div>
-                                <div className='aspirant-profession'>{aspirant[props.profession]}</div>
-                            </div>
+                            <Link className='link-tag' to={`${props.link}${aspirant[props.linkId]}`} >
+                                <div className='aspirant-card'>
+                                    <Image src={aspirant[props.image]} roundedCircle className='aspirant-image' />
+                                    <div className='aspirant-name'>{aspirant[props.name]} {aspirant[props.lastName]}</div>
+                                    <div className='aspirant-profession'>{aspirant[props.profession]}</div>
+                                </div>
+                            </Link>
                         </Col>
                     ))}
                 </Row>

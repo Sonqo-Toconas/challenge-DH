@@ -22,17 +22,17 @@ function UserPanelProps(props) {
             <Card>
                 <CardHeader>
                     <Image src={userPanel[props.image]} roundedCircle className='aspirant-image' />
-                    <h2>{userPanel[props.name]} {userPanel[props.last_name]}</h2>
+                    <h2>{userPanel[props.name]} {userPanel[props.lastName]}</h2>
                 </CardHeader>
                 <CardBody>
                     <ListGroup>
                         <ListGroupItem>DNI: {userPanel[props.dni]}</ListGroupItem>
                         <ListGroupItem>Email: {userPanel[props.email]}</ListGroupItem>
                         <ListGroupItem>Teléfono: {userPanel[props.phone]}</ListGroupItem>
-                        <ListGroupItem>LinkedIn: <a href={userPanel[props.URL_linkedin]}>{userPanel[props.URL_linkedin]}</a></ListGroupItem>
+                        <ListGroupItem>LinkedIn: <a href={userPanel[props.UrlLinkedin]}>{userPanel[props.UrlLinkedin]}</a></ListGroupItem>
                         <ListGroupItem>Fecha de nacimiento: {userPanel[props.birthday]}</ListGroupItem>
                         <ListGroupItem>Sexo: {userPanel[props.sex]}</ListGroupItem>
-                        <ListGroupItem>Profesión: {userPanel[props.professions_id]}</ListGroupItem>
+                        <ListGroupItem>Profesión: {userPanel[props.professions]}</ListGroupItem>
                     </ListGroup>
                 </CardBody>
             </Card>

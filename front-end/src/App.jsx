@@ -1,14 +1,14 @@
-import Header from "./views/Header";/* 
-import MainCard from "./views/MainCard";
-import LateralMenu from "./views/LateralMenu"; */
 import "./App.css";
+import Header from "./views/Header";
+import LateralMenu from "./views/LateralMenu";
+import MainCard from "./views/MainCard";
 
 function App() {
   return (
     <div>
-     {/*  <LateralMenu /> */}
+      <LateralMenu />
       <Header />
-     {/*  <MainCard /> */}
+      <MainCard />
     </div>
   );
 }

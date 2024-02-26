@@ -1,9 +1,10 @@
 import ButtonLink from "../components/ui/ButtonLink";
+import './LateralMenu.css';
 
 const LateralMenu = () => {
   const menuLinks = [
     {
-      link: "/",
+      link: "/empresas",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +21,7 @@ const LateralMenu = () => {
       name: "Empresas",
     },
     {
-      link: "/",
+      link: "/aspirantes",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +37,7 @@ const LateralMenu = () => {
       name: "Aspirantes",
     },
     {
-      link: "/",
+      link: "/profesiones",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +53,7 @@ const LateralMenu = () => {
       name: "Profesiones",
     },
     {
-      link: "/",
+      link: "/registro",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +89,7 @@ const LateralMenu = () => {
   ];
 
   return (
-    <div>
+    <div className="menu-wrap">
       <div>
         <h4>Opciones</h4>
       </div>

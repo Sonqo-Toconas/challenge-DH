@@ -56,9 +56,9 @@ const api = {
 
 			let formattedUser = {
 				...user.dataValues,
-				image: `http://localhost:3030/uploads/${
-					user.image ? user.image : "avatar.jpg"
-				}`,
+				image: `http://localhost:3030/uploads/${user.image ? user.image : "avatar.jpg"
+					}`,
+				professions: user.professions.name
 			};
 
 			res.status(200).json({
@@ -92,9 +92,8 @@ const api = {
 			const modifiedApplicants = applicantsAll.map((applicant) => {
 				return {
 					...applicant.dataValues,
-					image: `http://localhost:3030/uploads/${
-						applicant.image ? applicant.image : "avatar.jpg"
-					}`,
+					image: `http://localhost:3030/uploads/${applicant.image ? applicant.image : "avatar.jpg"
+						}`,
 					professions: applicant.professions.name,
 					userUrl: `http://localhost:3030/api/applicant/${applicant.id}`,
 				};
@@ -136,7 +135,7 @@ const api = {
 	register: async (req, res) => {
 		let errors = validationResult(req);
 		const formattedErros = validate(errors, req);
-		if (formattedErros) return res.status(422).json(formattedErros);
+		if (formattedErros) return res.status(422).json({ formattedErros });
 
 		const {
 			dni,

@@ -1,13 +1,13 @@
-import AspirantListProps from './AspirantListProps';
+import RegisterFormProps from './RegisterFormProps';
 
-function AspirantList() {
+function RegisterForm() {
     return (
         <>
-            <AspirantListProps
-                title='Aspirantes'
+            <RegisterFormProps
+                title='Completa el formulario'
                 image='image'
                 name='name'
-                lastName='last_name'
+                lastName='lastName'
                 profession='professions'
                 link='/aspirantes/'
                 linkId='id'
@@ -18,4 +18,4 @@ function AspirantList() {
     );
 };
 
-export default AspirantList
+export default RegisterForm

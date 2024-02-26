@@ -7,9 +7,11 @@ function BusinessList() {
                 title='Lista de empresas'
                 image='image'
                 name='name'
-                profession='profession'
-                api='https://rickandmortyapi.com/api/character'
-                data='results'
+                profession='description'
+                link='/empresa/'
+                linkId='id'
+                api='http://localhost:3030/api/companies'
+                data='data'
             />
         </>
     );
