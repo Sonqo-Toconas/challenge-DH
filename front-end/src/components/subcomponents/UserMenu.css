@@ -1,0 +1,13 @@
+#menu-header{
+    align-items: center;   
+}
+
+/* #addUser-01, #myProfile-02, #closeSession-03 {
+    border: none;
+} */
+
+.navbar-nav .nav-item .btn-link{
+    border: none;
+
+}
+
