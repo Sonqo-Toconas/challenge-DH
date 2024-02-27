@@ -1,0 +1,40 @@
+#lateral-menu {
+    width: 250px;
+    background-color: #f0f0f0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 170px 18px;
+    box-sizing: border-box;
+    margin-top: 0px;
+  }
+  
+  .content-wrap {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  
+  /* Media query para dispositivos con ancho de pantalla menor a 768px */
+  @media (max-width: 768px) {
+    #lateral-menu {
+      width: 100%;
+      padding: 50px 18px;
+    }
+  
+    .content-wrap {
+      margin-left: 0;
+      padding: 20px;
+    }
+  }
+  
+  /* Media query para dispositivos con ancho de pantalla menor a 576px */
+  @media (max-width: 576px) {
+    #lateral-menu {
+      padding: 30px 18px;
+    }
+  
+    .content-wrap {
+      padding: 10px;
+    }
+  }

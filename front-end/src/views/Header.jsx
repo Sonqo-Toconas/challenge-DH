@@ -6,8 +6,8 @@ import "./Header.css"
 
 const Header = () => {
   return (
-    <Navbar collapseOnSelect expand="md" className="fixed-top border-bottom border-black ms-0">
-      {/* es un componente que sirve de contenedor que indica que se debe ocupar todo el ancho disponible horizontal */}
+    <Navbar collapseOnSelect expand="md" className="custom-navbar">
+  {/*que ocupe desde LateralMenu*/}
       <Container fluid>
         {/*Componente de React-boostrap donde se aloja el logo*/}
         {/* as={Link} to="/" establece que funcione como un enlace de navegacion usando react-router-dom */}{" "}
