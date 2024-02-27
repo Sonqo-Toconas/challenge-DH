@@ -9,8 +9,7 @@ const ButtonLink = (props) => {
     <Nav.Item>
       <NavLink to={props.link}>
         <Button variant="outline-dark" className="rounded-0">
-          <span className="mr-2">{props.icon}</span> 
-          <span className="">{props.name}</span>
+          <span className="m-2">{props.icon}</span>
         </Button>
       </NavLink>
     </Nav.Item>
@@ -20,7 +19,6 @@ const ButtonLink = (props) => {
 ButtonLink.propTypes = {
   link: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
-  name: PropTypes.string.isRequired,
 };
 
 export default ButtonLink;

@@ -1,22 +1,7 @@
+import { Carousel } from "react-bootstrap";
 import Card from "../ui/Card";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const CardMain = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    centerMode: true,
-    autoplaySpeed: 3000,
-    arrows: true,
-    speed: 300,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-
-  };
-
   const cardBanners = [
     {
       id: "1",
@@ -53,20 +38,20 @@ const CardMain = () => {
   ];
 
   return (
-    <div>
-      <Slider {...settings}>
-        {cardBanners.map((card) => (
+    <Carousel>
+      {cardBanners.map((card) => (
+        <Carousel.Item key={card.id}>
           <Card
-            key={card.id}
             title={card.title}
             description={card.description}
             image={card.image}
             nameImage={card.nameImage}
           />
-        ))}
-      </Slider>
-    </div>
+        </Carousel.Item>
+      ))}
+    </Carousel>
   );
 };
+
 
 export default CardMain;

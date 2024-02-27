@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import { Form } from "react-bootstrap";
-import "./Input.css"
+import "./Input.css";/* 
+import React from "react"; */
 
 const Input = (props) => {
   return (
-    <Form className="d-flex" id="form-input" style={{maxWidth:"300px", minWidth:"250px"}}>
+    <Form className="d-flex" id="form-input" style={{/* maxWidth:"300px", */ minWidth:"250px"}}>
       
       <Form.Control
         aria-label={props.name}

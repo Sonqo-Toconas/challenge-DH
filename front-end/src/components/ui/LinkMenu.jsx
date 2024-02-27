@@ -8,7 +8,7 @@ const LinkMenu = (props) => {
 
   return (
     <NavLink to={props.link} /* variant="outline-dark" */ className="rounded-0 text-black text-decoration-none">
-    <span className="mr-2">{props.icon}</span> 
+    <span className="m-2">{props.icon}</span> 
    {/*  <span className="">{props.name}</span> */}
 </NavLink>     
   );

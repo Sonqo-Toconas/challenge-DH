@@ -6,7 +6,7 @@ import "./Header.css"
 
 const Header = () => {
   return (
-    <Navbar collapseOnSelect expand="md" className="fixed-top border-bottom border-black ms-0">
+    <Navbar collapseOnSelect expand="md" className="fixed-top border-bottom border-black ms-0 bg-white">
       {/* es un componente que sirve de contenedor que indica que se debe ocupar todo el ancho disponible horizontal */}
       <Container fluid>
         {/*Componente de React-boostrap donde se aloja el logo*/}
@@ -15,7 +15,7 @@ const Header = () => {
           <img
             src="/src/assets/images/logo-dh.png"
             alt="Logo Digital House Emplear"
-            style={{ width: "100%", height: "auto", minWidth:"80px"}}
+            style={{ width: "100%", height: "auto", minWidth:"80px", maxWidth:"100px"}}
           />
         </Navbar.Brand>
         {/*Componente de React-Boostrap que crea Botón de Menú en pantallas pequeñas */}

@@ -62,9 +62,9 @@ const UserMenu = () => {
   ];
 
   return (
-    <Nav className="navbar-nav border m-0" id="menu-header" style={{minWidth:"400px", maxWidth:"500px"}}>
+    <Nav className="navbar-nav border m-0" id="menu-header" /* style={{minWidth:"400px", maxWidth:"500px"}} */>
       {userLinks.map((userLink) => (
-        <Nav.Item key={userLink.id} className="nav-item  border w-100">
+        <Nav.Item key={userLink.id} className="nav-item border w-100">
           <Button className="rounded-0 border-white bg-white" /* variant="ligth" bg="light" */>
           <LinkMenu 
             key={userLink.id}
