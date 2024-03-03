@@ -1,23 +1,18 @@
+import Header from "./views/Header";
 import "./App.css";
-import Header from "./views/Header";/* 
-import { Row, Col } from 'react-bootstrap'; */
 import LateralMenu from "./views/LateralMenu";
-import MainCard from "./views/MainCard";
+import CardMain from "./components/subcomponents/CardMain";
+/* import MainContainer from "./views/MainContainer"; */
 
-function App() {
+const App = () => {
   return (
     <div>
-     <LateralMenu />
-      <Header />
-      {/* <Row>
-      <Col xs={12} md={{ span: 8, offset: 2 }}> */}
-      <MainCard />
-     {/*  </Col>
-    </Row> */}
-      
-            
-    </div>
+      <Header></Header>
+        <LateralMenu></LateralMenu>
+        {/* <MainContainer></MainContainer> */}
+        <CardMain></CardMain>
+      </div>
   );
-}
+};
 
 export default App;
