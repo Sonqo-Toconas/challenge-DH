@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   /* Nav, */ Navbar,
   /* NavDropdown, */ Container,
@@ -40,6 +41,7 @@ const Header = () => {
           {/* <Container fluid expand="md" */}
           <SearchBar className="search-bar-header" />
           <UserMenu className="user-menu-header" />
+          
           {/* </Nav> */}
           {/* </Container> */}
         </Navbar.Collapse>

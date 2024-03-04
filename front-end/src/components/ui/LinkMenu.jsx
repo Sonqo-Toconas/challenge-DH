@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./ButtonLink.css"
@@ -8,9 +8,9 @@ const LinkMenu = (props) => {
 
   return (
     <NavLink to={props.link} /* variant="outline-dark" */ className="rounded-0 text-black text-decoration-none">
-    <span className="m-2">{props.icon}</span> 
-   {/*  <span className="">{props.name}</span> */}
-</NavLink>     
+      <span className="m-2">{props.icon}</span>
+      {/*  <span className="">{props.name}</span> */}
+    </NavLink>
   );
 };
 

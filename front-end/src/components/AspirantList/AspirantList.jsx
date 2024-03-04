@@ -1,3 +1,4 @@
+import React from 'react';
 import AspirantListProps from './AspirantListProps';
 
 function AspirantList() {

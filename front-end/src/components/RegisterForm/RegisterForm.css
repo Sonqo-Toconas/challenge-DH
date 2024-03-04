@@ -47,3 +47,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.error-messege {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+}

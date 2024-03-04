@@ -3,15 +3,16 @@ import "./App.css";
 import LateralMenu from "./views/LateralMenu";
 import CardMain from "./components/subcomponents/CardMain";
 /* import MainContainer from "./views/MainContainer"; */
+import MainCard from "./views/MainCard";
 
 const App = () => {
   return (
     <div>
-      <Header></Header>
-        <LateralMenu></LateralMenu>
-        {/* <MainContainer></MainContainer> */}
-        <CardMain></CardMain>
-      </div>
+      <Header />
+      <LateralMenu />
+      <MainCard />
+      {/* <MainContainer></MainContainer> */}
+    </div>
   );
 };
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import UserPanelProps from './UserPanelProps';
 import { useParams } from 'react-router-dom';
 

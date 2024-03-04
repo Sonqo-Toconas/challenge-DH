@@ -16,6 +16,23 @@
     font-size: 25px;
 }
 
-.profession-container {
-    width: 60%;
+@media (min-width: 0px) {
+    .profession-container {
+        margin-top: -55%;
+        width: 60%;
+    }
+}
+
+@media (min-width: 770px) {
+    .profession-container {
+        margin-top: -65%;
+        width: 60%;
+    }
+}
+
+@media (min-width: 914px) {
+    .profession-container {
+        margin-top: -50%;
+        width: 60%;
+    }
 }

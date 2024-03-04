@@ -1,3 +1,4 @@
+import React from 'react';
 import ProfessionListProps from './ProfessionListProps';
 
 function ProfessionList() {

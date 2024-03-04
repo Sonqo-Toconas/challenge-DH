@@ -20,7 +20,7 @@ function ProfessionListProps(props) {
     }, []);
 
     return (
-        <>
+        <Container className='profession-container'>
             <h2 className='profession-title'>{props.title}</h2>
             <Table hover className='profession-table'>
                 <tbody>
@@ -34,7 +34,7 @@ function ProfessionListProps(props) {
                     ))}
                 </tbody>
             </Table>
-        </>
+        </Container>
     );
 };
 

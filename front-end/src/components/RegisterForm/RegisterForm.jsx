@@ -1,3 +1,4 @@
+import React from 'react';
 import RegisterFormProps from './RegisterFormProps';
 
 function RegisterForm() {

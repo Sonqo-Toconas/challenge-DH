@@ -1,3 +1,4 @@
+import React from 'react';
 import { Nav } from "react-bootstrap";
 /* import ButtonLink from "../ui/ButtonLink"; */
 import LinkMenu from "../ui/LinkMenu";
@@ -66,13 +67,13 @@ const UserMenu = () => {
       {userLinks.map((userLink) => (
         <Nav.Item key={userLink.id} className="nav-item border w-100">
           <Button className="rounded-0 border-white bg-white" /* variant="ligth" bg="light" */>
-          <LinkMenu 
-            key={userLink.id}
-            link={userLink.link}
-            icon={userLink.icon}/* 
+            <LinkMenu
+              key={userLink.id}
+              link={userLink.link}
+              icon={userLink.icon}/* 
             name={userLink.name} */
-            className="btn-link"
-          ></LinkMenu>
+              className="btn-link"
+            ></LinkMenu>
           </Button>
         </Nav.Item>
       ))}

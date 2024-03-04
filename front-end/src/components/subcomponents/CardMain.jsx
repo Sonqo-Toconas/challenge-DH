@@ -119,7 +119,7 @@ const CardMain = () => {
 };
 
 export default CardMain; */
-
+import React from 'react';
 import { Carousel } from "react-bootstrap";
 
 const CardMain = () => {
@@ -159,11 +159,11 @@ const CardMain = () => {
   ];
 
   return (
-    <section style={{width:"80%", marginTop: "120px", display: "flex"}}>
-      <Carousel style={{width:"100%"}} >
+    <section style={{ width: "80%", marginTop: "120px", display: "flex" }}>
+      <Carousel style={{ width: "100%" }} >
         {cardBanners.map((card) => (
           <Carousel.Item key={card.id}>
-            <img src={card.image} alt={card.nameImage} style={{}}/>
+            <img src={card.image} alt={card.nameImage} style={{}} />
             <Carousel.Caption>
               <h2>{card.title}</h2>
               <p>{card.description}</p>

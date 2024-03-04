@@ -23,7 +23,7 @@ function AspirantListProps(props) {
         <>
             <h2 className='aspirant-title'>{props.title}</h2>
             <Container>
-                <Row xs={1} sm={2} md={3} lg={4}>
+                <Row xs={1} sm={2} lg={3} xg={4}>
                     {aspirantList.map((aspirant, i) => (
                         <Col key={i} className='mb-4'>
                             <Link className='link-tag' to={`${props.link}${aspirant[props.linkId]}`} >
